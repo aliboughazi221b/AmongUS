@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Among Us IRL</title>
+    <title>Among Us IRL Game Organizer</title>
     <style>
         * {
             margin: 0;
@@ -279,129 +279,6 @@
             color: #ffd93b;
         }
 
-        .input-section {
-            margin: 24px auto 22px;
-            text-align: center;
-            position: relative;
-            max-width: 480px;
-            padding: 18px 20px 14px;
-            border-radius: 24px;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.09), transparent 60%);
-            box-shadow:
-                0 14px 28px rgba(0, 0, 0, 0.7),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.5);
-        }
-
-        .input-section::before {
-            content: "Lobby Settings";
-            position: absolute;
-            top: -11px;
-            left: 18px;
-            padding: 2px 10px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            background: linear-gradient(135deg, #0f172a, #1d2448);
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.7);
-            color: #e5e7eb;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-        }
-
-        label {
-            font-size: 1.1rem;
-            color: #f9fafb;
-            display: block;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-            font-weight: 600;
-        }
-
-        input[type="number"] {
-            padding: 13px 20px;
-            font-size: 1.05rem;
-            border: 2px solid rgba(138, 43, 226, 0.7);
-            border-radius: 999px;
-            width: 230px;
-            max-width: 100%;
-            text-align: center;
-            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), rgba(20, 26, 65, 0.98));
-            color: #fff;
-            transition: all 0.25s ease;
-            backdrop-filter: blur(14px);
-            box-shadow:
-                0 7px 15px rgba(0, 0, 0, 0.7),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #ff1493;
-            box-shadow:
-                0 0 18px rgba(138, 43, 226, 0.9),
-                0 0 30px rgba(255, 20, 147, 0.8);
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        input[type="number"]::placeholder {
-            color: rgba(230, 230, 255, 0.6);
-        }
-
-        .hint {
-            margin-top: 6px;
-            font-size: 0.8rem;
-            color: rgba(209, 213, 219, 0.85);
-        }
-
-        button {
-            background:
-                radial-gradient(circle at 0 0, #ffd93b 0, transparent 55%),
-                linear-gradient(135deg, #8a2be2 0%, #ff1493 50%, #ff4b5c 100%);
-            color: white;
-            border: none;
-            padding: 13px 42px;
-            font-size: 1rem;
-            border-radius: 999px;
-            cursor: pointer;
-            margin-top: 18px;
-            transition: all 0.22s ease;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow:
-                0 10px 28px rgba(0, 0, 0, 0.85),
-                0 0 22px rgba(255, 20, 147, 0.75);
-            position: relative;
-            overflow: hidden;
-        }
-
-        button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
-            transition: left 0.5s;
-        }
-
-        button:hover::before {
-            left: 120%;
-        }
-
-        button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.95),
-                0 0 34px rgba(255, 20, 147, 0.95);
-        }
-
-        button:active {
-            transform: translateY(-1px) scale(1.03);
-        }
-
         .players-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -635,16 +512,8 @@
                 font-size: 2rem;
             }
 
-            .input-section {
-                padding: 16px 14px 12px;
-            }
-
-            input[type="number"] {
-                width: 100%;
-            }
-
-            button {
-                width: 100%;
+            .players-grid {
+                gap: 16px;
             }
         }
     </style>
@@ -658,7 +527,7 @@
         <div class="star" style="top:25%;left:80%;animation-delay:1s;"></div>
         <div class="star" style="top:35%;left:60%;animation-delay:1.5s;"></div>
         <div class="star" style="top:50%;left:20%;animation-delay:0.8s;"></div>
-        <div class="star" style="top:65%;left:70%;animation-delay:1.2s;"></div>
+        <div class="star" style="top:65%;left:70%;animation-delay:1.2s;"></div>;
         <div class="star" style="top:75%;left:30%;animation-delay:1.8s;"></div>
         <div class="star" style="top:85%;left:50%;animation-delay:0.3s;"></div>
         <div class="star" style="top:12%;left:72%;animation-delay:2s;"></div>
@@ -679,23 +548,20 @@
         </div>
 
         <div class="title-wrapper">
-            <h1><span class="title-glow">🚀 Among Us IRL</span></h1>
+            <h1><span class="title-glow">🚀 Among Us IRL Organizer</span></h1>
             <div class="subtitle">
                 Host your <span>sus</span> lobby in real life
             </div>
         </div>
 
-        <div class="input-section">
-            <label for="playerCount">Enter Number of Players:</label>
-            <input type="number" id="playerCount" min="5" max="20" placeholder="e.g., 10">
-            <div class="hint">Minimum 5 players • Impostors are chosen automatically</div>
-            <button onclick="generateGame()">Generate Game</button>
-        </div>
-
-        <div id="playersContainer" class="players-grid hidden"></div>
+        <!-- No input, no button: just the results -->
+        <div id="playersContainer" class="players-grid"></div>
     </div>
 
     <script>
+        // 🔧 Set your number of players here:
+        const PLAYER_COUNT = 25; // ⬅️ change this (min 5, max 20)
+
         const availableTasks = [
             "Task 1", "Task 2", "Task 3", "Task 4", "Task 5",
             "Task 6", "Task 7", "Task 8", "Task 9", "Task 10",
@@ -703,10 +569,10 @@
         ];
 
         function generateGame() {
-            const playerCount = parseInt(document.getElementById('playerCount').value);
+            const playerCount = PLAYER_COUNT;
 
             if (!playerCount || playerCount < 5) {
-                alert('Please enter at least 5 players!');
+                alert('PLAYER_COUNT must be at least 5!');
                 return;
             }
 
@@ -723,7 +589,6 @@
             // Generate HTML
             const container = document.getElementById('playersContainer');
             container.innerHTML = '';
-            container.classList.remove('hidden');
 
             players.forEach(playerNum => {
                 const isImpostor = impostors.includes(playerNum);
@@ -761,6 +626,9 @@
                 container.appendChild(card);
             });
         }
+
+        // Auto-generate the game on page load
+        window.addEventListener('DOMContentLoaded', generateGame);
     </script>
 </body>
 
