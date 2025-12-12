@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Among Us IRL Game Organizer</title>
+    <title>Among Us IRL</title>
     <style>
-        /* (same styling as your last version — unchanged) */
+        /* see line 362 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body {
             font-family: 'Arial', sans-serif;
             background:
@@ -398,7 +398,7 @@
             };
         }
 
-        function makeRng(seedStr) {
+        function makeRng(Str) {
             const seed = xmur3(seedStr);
             return sfc32(seed(), seed(), seed(), seed());
         }
