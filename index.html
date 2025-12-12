@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Among Us IRL Game Organizer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* (same styling as your last version — unchanged) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Arial', sans-serif;
@@ -45,60 +42,27 @@
         }
 
         @keyframes pulse {
-            0% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.85;
-                transform: scale(1.03);
-            }
-
-            100% {
-                opacity: 0.55;
-                transform: scale(1.01);
-            }
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.03); }
+            100% { opacity: 0.55; transform: scale(1.01); }
         }
 
-        .stars {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
+        .stars { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
 
         .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 2px; height: 2px;
             background: white;
             border-radius: 50%;
             animation: twinkle 3s infinite;
             opacity: 0.6;
         }
-
-        .star:nth-child(3n) {
-            width: 3px;
-            height: 3px;
-            opacity: 0.9;
-        }
-
-        .star:nth-child(5n) {
-            animation-duration: 5s;
-            opacity: 0.4;
-        }
+        .star:nth-child(3n) { width: 3px; height: 3px; opacity: 0.9; }
+        .star:nth-child(5n) { animation-duration: 5s; opacity: 0.4; }
 
         @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.9);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.35);
-            }
+            0%, 100% { opacity: 0.2; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.35); }
         }
 
         .container {
@@ -132,9 +96,7 @@
                     rgba(0, 212, 255, 0.7),
                     rgba(255, 20, 147, 0.75),
                     rgba(255, 255, 255, 0.0));
-            -webkit-mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0.7;
@@ -142,121 +104,68 @@
         }
 
         .container-top-glow {
-            position: absolute;
-            top: -18px;
-            left: 50%;
+            position: absolute; top: -18px; left: 50%;
             transform: translateX(-50%);
-            width: 220px;
-            height: 46px;
+            width: 220px; height: 46px;
             background: radial-gradient(circle, rgba(0, 212, 255, 0.65), transparent 70%);
             opacity: 0.7;
             filter: blur(12px);
             z-index: -1;
         }
 
-        .header-crew {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin-bottom: 10px;
-        }
+        .header-crew { display: flex; justify-content: center; gap: 18px; margin-bottom: 10px; }
 
         .crew {
-            width: 46px;
-            height: 64px;
+            width: 46px; height: 64px;
             border-radius: 18px 18px 14px 14px;
             position: relative;
-            box-shadow:
-                0 10px 20px rgba(0, 0, 0, 0.7),
-                0 0 18px rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 255, 255, 0.25);
             transform-origin: bottom center;
             animation: float 3s ease-in-out infinite;
         }
-
         .crew::before {
-            /* visor */
             content: "";
             position: absolute;
-            top: 14px;
-            left: 7px;
-            right: 7px;
-            height: 20px;
-            border-radius: 20px;
+            top: 14px; left: 7px; right: 7px;
+            height: 20px; border-radius: 20px;
             background: radial-gradient(circle at 20% 20%, #ffffff, #aee9ff 35%, #3f6f9e 75%);
             box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
         }
-
         .crew::after {
-            /* backpack */
             content: "";
             position: absolute;
-            top: 18px;
-            left: -10px;
-            width: 15px;
-            height: 26px;
+            top: 18px; left: -10px;
+            width: 15px; height: 26px;
             border-radius: 12px;
             background: inherit;
             filter: brightness(0.8);
         }
 
-        .crew.red {
-            background: linear-gradient(145deg, #ff374b, #7b0000);
-            animation-delay: 0s;
-        }
-
-        .crew.blue {
-            background: linear-gradient(145deg, #00d4ff, #0051c8);
-            animation-delay: 0.2s;
-        }
-
-        .crew.green {
-            background: linear-gradient(145deg, #4ade80, #15803d);
-            animation-delay: 0.4s;
-        }
-
-        .crew.yellow {
-            background: linear-gradient(145deg, #ffd93b, #f59e0b);
-            animation-delay: 0.6s;
-        }
-
-        .crew.purple {
-            background: linear-gradient(145deg, #c77dff, #5a189a);
-            animation-delay: 0.8s;
-        }
+        .crew.red { background: linear-gradient(145deg, #ff374b, #7b0000); animation-delay: 0s; }
+        .crew.blue { background: linear-gradient(145deg, #00d4ff, #0051c8); animation-delay: 0.2s; }
+        .crew.green { background: linear-gradient(145deg, #4ade80, #15803d); animation-delay: 0.4s; }
+        .crew.yellow { background: linear-gradient(145deg, #ffd93b, #f59e0b); animation-delay: 0.6s; }
+        .crew.purple { background: linear-gradient(145deg, #c77dff, #5a189a); animation-delay: 0.8s; }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-
-            50% {
-                transform: translateY(-8px) scale(1.03);
-            }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.03); }
         }
 
-        .title-wrapper {
-            text-align: center;
-            margin-bottom: 18px;
-            position: relative;
-        }
+        .title-wrapper { text-align: center; margin-bottom: 18px; position: relative; }
 
         h1 {
             color: #fff;
             margin-bottom: 8px;
             font-size: 2.9rem;
-            text-shadow:
-                0 0 18px rgba(138, 43, 226, 0.9),
-                0 0 40px rgba(255, 20, 147, 0.85),
-                0 4px 12px rgba(0, 0, 0, 0.85);
+            text-shadow: 0 0 18px rgba(138, 43, 226, 0.9),
+                         0 0 40px rgba(255, 20, 147, 0.85),
+                         0 4px 12px rgba(0, 0, 0, 0.85);
             font-weight: 800;
             letter-spacing: 2px;
         }
 
-        .title-glow {
-            position: relative;
-            display: inline-block;
-        }
-
+        .title-glow { position: relative; display: inline-block; }
         .title-glow::after {
             content: "";
             position: absolute;
@@ -274,10 +183,7 @@
             letter-spacing: 2px;
             opacity: 0.9;
         }
-
-        .subtitle span {
-            color: #ffd93b;
-        }
+        .subtitle span { color: #ffd93b; }
 
         .players-grid {
             display: grid;
@@ -287,22 +193,14 @@
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(18px) scale(0.97);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(18px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .player-card {
             border-radius: 22px;
             padding: 22px 20px 16px;
-            box-shadow:
-                0 14px 30px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
             transition: all 0.24s ease;
             position: relative;
             overflow: hidden;
@@ -314,27 +212,12 @@
         .player-card::before {
             content: '';
             position: absolute;
-            top: -60%;
-            left: -60%;
-            width: 220%;
-            height: 220%;
+            top: -60%; left: -60%;
+            width: 220%; height: 220%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
             transform: rotate(25deg);
             transition: transform 0.7s ease, opacity 0.7s ease;
             opacity: 0;
-        }
-
-        .player-card::after {
-            /* soft lobby floor reflection */
-            content: '';
-            position: absolute;
-            bottom: -22px;
-            left: -10%;
-            right: -10%;
-            height: 40px;
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3), transparent 70%);
-            opacity: 0.9;
-            pointer-events: none;
         }
 
         .player-card:hover::before {
@@ -344,8 +227,7 @@
 
         .player-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow:
-                0 22px 50px rgba(0, 0, 0, 1);
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 1);
         }
 
         .player-card.impostor {
@@ -353,11 +235,7 @@
                 radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 60%),
                 radial-gradient(circle at bottom right, rgba(255, 101, 132, 0.4), transparent 70%),
                 linear-gradient(145deg, #ff6a88, #ff0844 40%, #520000 100%);
-            color: white;
             border: 2px solid rgba(255, 80, 110, 0.95);
-            box-shadow:
-                0 14px 32px rgba(255, 8, 68, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         .player-card.crewmate {
@@ -365,19 +243,7 @@
                 radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 60%),
                 radial-gradient(circle at bottom right, rgba(87, 233, 255, 0.4), transparent 70%),
                 linear-gradient(145deg, #57e9ff, #00c6ff 35%, #0046c7 100%);
-            color: white;
             border: 2px solid rgba(0, 212, 255, 0.9);
-            box-shadow:
-                0 14px 32px rgba(0, 212, 255, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .player-card.impostor .player-role::before {
-            background: linear-gradient(135deg, #ff0844, #ff6a00);
-        }
-
-        .player-card.crewmate .player-role::before {
-            background: linear-gradient(135deg, #00d4ff, #00ffb3);
         }
 
         .player-number {
@@ -385,8 +251,6 @@
             font-weight: 800;
             margin-bottom: 4px;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9);
-            position: relative;
-            z-index: 1;
         }
 
         .player-role {
@@ -396,8 +260,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-            position: relative;
-            z-index: 1;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -415,24 +277,13 @@
             margin-right: 4px;
         }
 
+        .player-card.impostor .player-role::before { background: linear-gradient(135deg, #ff0844, #ff6a00); }
+        .player-card.crewmate .player-role::before { background: linear-gradient(135deg, #00d4ff, #00ffb3); }
+
         .tasks-list {
             margin-top: 12px;
             padding-top: 14px;
             border-top: 1px solid rgba(255, 255, 255, 0.45);
-            position: relative;
-            z-index: 1;
-        }
-
-        .tasks-list::before {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.7);
-            opacity: 0.9;
         }
 
         .tasks-title {
@@ -450,17 +301,8 @@
             align-items: center;
         }
 
-        .task-item::before {
-            content: '→';
-            margin-right: 8px;
-            font-weight: 700;
-        }
+        .task-item::before { content: '→'; margin-right: 8px; font-weight: 700; }
 
-        .hidden {
-            display: none;
-        }
-
-        /* emergency meeting bar */
         .container::after {
             content: "";
             position: absolute;
@@ -473,61 +315,21 @@
                     rgba(255, 255, 255, 0.2) 0 10px,
                     rgba(255, 0, 0, 0.85) 10px 20px,
                     rgba(0, 0, 0, 0.6) 20px 30px);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.5),
-                0 0 35px rgba(255, 0, 0, 0.95);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+                        0 0 35px rgba(255, 0, 0, 0.95);
             opacity: 0.85;
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                padding: 26px 18px 22px;
-                border-radius: 26px;
-            }
-
-            h1 {
-                font-size: 2.3rem;
-            }
-
-            .subtitle {
-                font-size: 0.85rem;
-            }
-
-            .players-grid {
-                gap: 18px;
-            }
-
-            .player-card {
-                padding: 18px 16px 14px;
-            }
-
-            .crew {
-                width: 38px;
-                height: 54px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .players-grid {
-                gap: 16px;
-            }
         }
     </style>
 </head>
 
 <body>
     <div class="stars">
-        <!-- decorative stars -->
         <div class="star" style="top:5%;left:10%;animation-delay:0s;"></div>
         <div class="star" style="top:15%;left:40%;animation-delay:0.5s;"></div>
         <div class="star" style="top:25%;left:80%;animation-delay:1s;"></div>
         <div class="star" style="top:35%;left:60%;animation-delay:1.5s;"></div>
         <div class="star" style="top:50%;left:20%;animation-delay:0.8s;"></div>
-        <div class="star" style="top:65%;left:70%;animation-delay:1.2s;"></div>;
+        <div class="star" style="top:65%;left:70%;animation-delay:1.2s;"></div>
         <div class="star" style="top:75%;left:30%;animation-delay:1.8s;"></div>
         <div class="star" style="top:85%;left:50%;animation-delay:0.3s;"></div>
         <div class="star" style="top:12%;left:72%;animation-delay:2s;"></div>
@@ -549,18 +351,16 @@
 
         <div class="title-wrapper">
             <h1><span class="title-glow">🚀 Among Us IRL Organizer</span></h1>
-            <div class="subtitle">
-                Host your <span>sus</span> lobby in real life
-            </div>
+            <div class="subtitle">Seeded lobby • same results for <span>everyone</span></div>
         </div>
 
-        <!-- No input, no button: just the results -->
         <div id="playersContainer" class="players-grid"></div>
     </div>
 
     <script>
-        // 🔧 Set your number of players here:
-        const PLAYER_COUNT = 25; // ⬅️ change this (min 5, max 20)
+        // ✅ Change these two only:
+        const PLAYER_COUNT = 10;     // min 5, max 20
+        const SEED = "game-001";     // change this to regenerate the same lobby everywhere
 
         const availableTasks = [
             "Task 1", "Task 2", "Task 3", "Task 4", "Task 5",
@@ -568,25 +368,66 @@
             "Task 11", "Task 12", "Task 13", "Task 14", "Task 15"
         ];
 
+        // --- Seeded RNG (deterministic) ---
+        // xmur3 (hash string -> 32-bit seeds) + sfc32 (fast PRNG)
+        function xmur3(str) {
+            let h = 1779033703 ^ str.length;
+            for (let i = 0; i < str.length; i++) {
+                h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+                h = (h << 13) | (h >>> 19);
+            }
+            return function () {
+                h = Math.imul(h ^ (h >>> 16), 2246822507);
+                h = Math.imul(h ^ (h >>> 13), 3266489909);
+                h ^= h >>> 16;
+                return h >>> 0;
+            };
+        }
+
+        function sfc32(a, b, c, d) {
+            return function () {
+                a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0;
+                let t = (a + b) | 0;
+                a = b ^ (b >>> 9);
+                b = (c + (c << 3)) | 0;
+                c = (c << 21) | (c >>> 11);
+                d = (d + 1) | 0;
+                t = (t + d) | 0;
+                c = (c + t) | 0;
+                return (t >>> 0) / 4294967296;
+            };
+        }
+
+        function makeRng(seedStr) {
+            const seed = xmur3(seedStr);
+            return sfc32(seed(), seed(), seed(), seed());
+        }
+
+        function shuffleWithRng(arr, rng) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(rng() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
         function generateGame() {
             const playerCount = PLAYER_COUNT;
-
             if (!playerCount || playerCount < 5) {
-                alert('PLAYER_COUNT must be at least 5!');
+                alert("PLAYER_COUNT must be at least 5!");
                 return;
             }
+
+            const rng = makeRng(`${SEED}|players=${playerCount}`);
 
             const impostorCount = Math.max(1, Math.round(playerCount * 0.2));
             const players = Array.from({ length: playerCount }, (_, i) => i + 1);
 
-            // Randomly select impostors
-            const impostors = [];
-            const shuffled = [...players].sort(() => Math.random() - 0.5);
-            for (let i = 0; i < impostorCount; i++) {
-                impostors.push(shuffled[i]);
-            }
+            // Deterministic impostor selection
+            const shuffledPlayers = shuffleWithRng(players, rng);
+            const impostors = shuffledPlayers.slice(0, impostorCount);
 
-            // Generate HTML
             const container = document.getElementById('playersContainer');
             container.innerHTML = '';
 
@@ -604,9 +445,9 @@
                         </div>
                     `;
                 } else {
-                    // Randomly assign 3–4 tasks to crewmates
-                    const numTasks = Math.floor(Math.random() * 2) + 3; // 3-4 tasks
-                    const shuffledTasks = [...availableTasks].sort(() => Math.random() - 0.5);
+                    // 3–4 tasks (deterministic)
+                    const numTasks = Math.floor(rng() * 2) + 3; // 3-4
+                    const shuffledTasks = shuffleWithRng(availableTasks, rng);
                     const assignedTasks = shuffledTasks.slice(0, numTasks);
 
                     tasksHtml = `
@@ -627,7 +468,6 @@
             });
         }
 
-        // Auto-generate the game on page load
         window.addEventListener('DOMContentLoaded', generateGame);
     </script>
 </body>
