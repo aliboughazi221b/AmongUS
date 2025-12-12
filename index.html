@@ -398,7 +398,7 @@
             };
         }
 
-        function makeRng(Str) {
+        function makeRng(seedStr) {
             const seed = xmur3(seedStr);
             return sfc32(seed(), seed(), seed(), seed());
         }
